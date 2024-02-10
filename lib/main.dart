@@ -143,6 +143,7 @@ class MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 20,
+                    backgroundColor: Theme.of(context).primaryColor,
                   ),
                 ),
               ],
