@@ -40,17 +40,24 @@ class MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Center(
           child: Text(
-            'Your-BMI',
+            'BMI',
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Container(
-        color: bgColor,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+          colors: [Color(0xffa18cd1), Color(0xfffbc2eb)],
+          begin: FractionalOffset(1.0, 0.5),
+          end: FractionalOffset(0.0, 1.0),
+          // stops: [0.0, 1.0]
+        )),
+        // color: bgColor,
         child: Center(
           child: Container(
             width: 300,
@@ -133,7 +140,10 @@ class MyHomePageState extends State<MyHomePage> {
                 ),
                 Text(
                   '$result',
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                  ),
                 ),
               ],
             ),
