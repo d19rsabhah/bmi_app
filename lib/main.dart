@@ -50,14 +50,16 @@ class MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          colors: [Color(0xffa18cd1), Color(0xfffbc2eb)],
-          begin: FractionalOffset(1.0, 0.5),
-          end: FractionalOffset(0.0, 1.0),
-          // stops: [0.0, 1.0]
-        )),
-        // color: bgColor,
+        color: bgColor,
+
+        // decoration: BoxDecoration(
+        //     gradient: LinearGradient(
+        //   colors: [Color(0xffa18cd1), Color(0xfffbc2eb)],
+        //   begin: FractionalOffset(1.0, 0.5),
+        //   end: FractionalOffset(0.0, 1.0),
+        //   // stops: [0.0, 1.0]
+        // )),
+
         child: Center(
           child: Container(
             width: 300,
@@ -66,7 +68,16 @@ class MyHomePageState extends State<MyHomePage> {
               children: [
                 Text(
                   'BMI',
-                  style: TextStyle(fontSize: 43, fontWeight: FontWeight.w700),
+                  style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
+                      foreground: Paint()
+                        ..shader = LinearGradient(colors: [
+                          Colors.blue,
+                          Colors.red,
+                        ]).createShader(
+                          Rect.fromLTWH(0, 0, 350, 60),
+                        )),
                 ),
                 TextField(
                   controller: wtController,
@@ -134,7 +145,10 @@ class MyHomePageState extends State<MyHomePage> {
                         });
                       }
                     },
-                    child: Text('Calculate')),
+                    child: Text(
+                      'Calculate',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )),
                 SizedBox(
                   height: 11,
                 ),
@@ -143,7 +157,7 @@ class MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 20,
-                    backgroundColor: Theme.of(context).primaryColor,
+                    // backgroundColor: Theme.of(context).primaryColor,
                   ),
                 ),
               ],
